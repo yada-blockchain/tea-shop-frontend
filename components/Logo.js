@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <div className="logo">
       {/* Les images importées depuis la balise IMG sont accessibles dans "public" */}
-      <img src="./logo.jpg" alt="logo react" />
+      <Image src="./logo.jpg" alt="logo react" />
       <h1 className="text-6xl font-bold text-green-600 mb-6">
         Buy Me A Tea
       </h1>{" "}
