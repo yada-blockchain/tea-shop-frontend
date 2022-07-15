@@ -4,6 +4,7 @@ import { useMoralis, useWeb3Contract } from "react-moralis";
 import { abi, contractAddresses } from "../constants";
 import { useNotification } from "web3uikit";
 import { mapTea } from "../utils/mapTea";
+import Logo from "./Logo";
 
 const MainPage = () => {
   const { isWeb3Enabled, chainId: chainIdHex, isAuthenticated } = useMoralis();
@@ -110,8 +111,7 @@ const MainPage = () => {
 
   return (
     <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-      <h1 className="text-6xl font-bold text-blue-600 mb-6">Buy Me A Tea</h1>
-
+      <Logo />
       {teaShopAddress ? (
         <div className="w-full max-w-xs sticky top-3 z-50 ">
           <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -152,7 +152,7 @@ const MainPage = () => {
 
             <div className="flex items-left justify-between">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-green-500 hover:bg-green-700 text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
                 onClick={async () => {
                   await buyTea({
@@ -173,19 +173,19 @@ const MainPage = () => {
           </form>
         </div>
       ) : (
-        <p className="text-2xl text-blue-600 mb-6">
+        <p className="text-2xl text-green-600 mb-6">
           You can switch your wallet to Rinkeby Testnet Network to test this
           application.
         </p>
       )}
 
-      {allTea ? (
+      {allTea && teaShopAddress ? (
         allTea.map((tea, index) => {
           return (
             <div className="border-l-2 mt-10" key={index}>
-              <div className="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-blue-800 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
+              <div className="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-green-800 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
                 {/* <!-- Dot Following the Left Vertical Line --> */}
-                <div className="w-5 h-5 bg-blue-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0"></div>
+                <div className="w-5 h-5 bg-green-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0"></div>
 
                 {/* <!-- Line that connecting the box with the vertical line --> */}
                 <div className="w-10 h-1 bg-green-300 absolute -left-10 z-0"></div>
